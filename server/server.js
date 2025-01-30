@@ -1,5 +1,5 @@
 import express from "express";
-import { tasks, createTask } from "./taskHandlers.js";
+import { tasks, createTask, deleteTask, updateTaskField } from "./taskHandlers.js";
 
 const server = express();
 const port = 3000;
@@ -8,7 +8,7 @@ server.use(express.json());
 
 // Get tasks
 server.get("/tasks", (req, res) => {
-    console.log("Tasks sent")
+  console.log("Tasks sent");
   res.send(tasks);
 });
 
@@ -21,17 +21,32 @@ server.post("/tasks", async (req, res) => {
 });
 
 // Delete task
-server.delete("/tasks/:id", (req, res) => {
+server.delete("/tasks/:id", async (req, res) => {
   const taskId = req.params.id;
+
+  await deleteTask(taskId);
 
   res.send("Deleted task with id: " + taskId);
 });
 
-// Update task
-server.put("/tasks/:id", (req, res) => {
+// Update task field
+server.patch("/tasks/:id", async (req, res) => {
   const taskId = req.params.id;
 
-  res.send("Updated task with id: " + taskId);
+  const entries = Object.entries(req.body)[0];
+
+  // Get the field being updated
+  const fieldName = entries[0];
+  // Get the new value of such field
+  const newValue = entries[1];
+
+  await updateTaskField(taskId,fieldName,newValue)
+
+
+  console.log("Updated field on task with id: ",taskId)
+  res.send(
+    `Set field "${fieldName}" to value of "${newValue}" on task with id: ${taskId}`
+  );
 });
 
 // START SERVER
