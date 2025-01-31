@@ -23,7 +23,7 @@ function TaskList({ tasks, deleteTask, updateTask }) {
 
       {completedTasks.length > 0 && (
         <div>
-          <TaskSeparator text={"Completed tasks"}></TaskSeparator>
+          <TaskSeparator text={"Tareas completadas"}></TaskSeparator>
           <div className="flex flex-col gap-3">
             {completedTasks.map((task) => (
               <Task
