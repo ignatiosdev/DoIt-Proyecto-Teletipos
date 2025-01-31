@@ -34,6 +34,7 @@ server.delete("/tasks/:id", async (req, res) => {
 
   await deleteTask(taskId);
 
+  console.log("Deleted task with id: " + taskId)
   res.send("Deleted task with id: " + taskId);
 });
 
