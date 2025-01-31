@@ -1,4 +1,4 @@
-let tasks = [{ id: 1, description: "Soy una tarea", completed: false }];
+let tasks = [];
 
 const createTask = async (task) => {
   task.id = tasks.length + 1;
