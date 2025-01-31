@@ -13,8 +13,8 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   // Send get tasks request
-  const getTasks = () => {
-    axios.get("http://localhost:3000/tasks").then((res) => {
+  const getTasks = async () => {
+    await axios.get("http://localhost:3000/tasks").then((res) => {
       setTasks(res.data);
     });
   };
@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <div className="min-w-full min-h-screen flex flex-col justify-center">
-        <div className="flex flex-col bg-primary mx-auto w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/12  rounded-lg p-12 md:p-16 pt-10">
+        <div className="flex flex-col shadow-lg bg-primary mx-auto w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/12 rounded-lg p-12 md:p-16 pt-10">
           <div className="mx-auto pb-6 font-">
             <h1 id="heading">DoIt</h1>
           </div>
