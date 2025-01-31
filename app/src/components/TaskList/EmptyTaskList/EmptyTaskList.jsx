@@ -9,7 +9,7 @@ function EmptyTaskList() {
       </div>
       <div className='md:w-1/2 flex justify-center'>
         
-        <img src={smileyFace} width={200} className='opacity-75'/> 
+        <img src={smileyFace} className='opacity-75 w-[150px] md:w-[200px]'/> 
       </div>
     </div>
   );

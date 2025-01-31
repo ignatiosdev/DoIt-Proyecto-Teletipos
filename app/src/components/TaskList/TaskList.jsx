@@ -7,7 +7,7 @@ function TaskList({ tasks, deleteTask, updateTask }) {
   const completedTasks = tasks.filter((task) => task.completed);
 
   return (
-    <div className="max-h-60 overflow-scroll -me-5 pe-1 min-h-40">
+    <div className="max-h-60 overflow-y-scroll min-h-40 pe-3" >
       {incompleteTasks && (
         <div className="flex flex-col gap-3">
           {incompleteTasks.map((task) => (

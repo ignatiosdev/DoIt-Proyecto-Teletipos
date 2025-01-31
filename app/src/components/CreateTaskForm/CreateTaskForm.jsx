@@ -31,10 +31,10 @@ function CreateTaskForm({ createTask }) {
           type="text"
           value={taskDescription}
           onChange={(e) => setTaskDescription(e.target.value)}
-          placeholder="Escribe un nombre para tu nueva tarea"
+          placeholder="Escribe un nombre para tu tarea"
           className={`input border-2  w-full bg-secondary text-lg ${
             hasInputError ? "border-error" : "border-transparent"
-          }  `}
+          }  placeholder:text-base lg:placeholder:text-lg`}
         />
       </div>
       <div className="w-4/12 self-center md:w-2/12 ps-4">
