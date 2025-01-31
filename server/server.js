@@ -1,5 +1,10 @@
 import express from "express";
-import { tasks, createTask, deleteTask, updateTaskField } from "./taskHandlers.js";
+import {
+  tasks,
+  createTask,
+  deleteTask,
+  updateTaskField,
+} from "./taskHandlers.js";
 
 const server = express();
 const port = 3000;
@@ -35,15 +40,12 @@ server.patch("/tasks/:id", async (req, res) => {
 
   const entries = Object.entries(req.body)[0];
 
-  // Get the field being updated
-  const fieldName = entries[0];
-  // Get the new value of such field
-  const newValue = entries[1];
+  // Get updated field and its new value 
+  const [fieldName, newValue] = entries;
 
-  await updateTaskField(taskId,fieldName,newValue)
+  await updateTaskField(taskId, fieldName, newValue);
 
-
-  console.log("Updated field on task with id: ",taskId)
+  console.log("Updated field on task with id: ", taskId);
   res.send(
     `Set field "${fieldName}" to value of "${newValue}" on task with id: ${taskId}`
   );
