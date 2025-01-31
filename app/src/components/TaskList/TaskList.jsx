@@ -4,12 +4,12 @@ import Task from "../Task/Task";
 import TaskSeparator from "./TaskSeparator/TaskSeparator";
 
 const dummyTasks = [
-  { id: 1, description: "This is a task", completed: true },
-  { id: 2, description: "This is a task", completed: true },
-  { id: 1, description: "This is a task", completed: true },
+  { id: 1, description: "This is a task", completed: false },
+  { id: 2, description: "This is a task", completed: false },
+  { id: 3, description: "This is a task", completed: false },
 
-  { id: 3, description: "This is a task", completed: true },
   { id: 4, description: "This is a task", completed: true },
+  { id: 5, description: "This is a task", completed: true },
 ];
 
 function TaskList({ tasks = dummyTasks }) {

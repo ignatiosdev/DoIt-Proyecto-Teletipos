@@ -2,7 +2,7 @@ import React from "react";
 
 function CreateTaskForm() {
   return (
-    <div className="flex gap-4">
+    <form className="flex gap-4">
       <div className="w-10/12">
         <input
           type="text"
@@ -10,10 +10,10 @@ function CreateTaskForm() {
           className="input input-bordered w-full bg-secondary text-lg"
         />
       </div>
-      <div className="w-2/12">
-      <button className="btn btn-secondary text-base-100">Aceptar</button>
+      <div className="w-2/12 ps-4">
+      <button className="btn btn-secondary text-base-100 w-full">Aceptar</button>
       </div>
-    </div>
+    </form>
   );
 }
 
