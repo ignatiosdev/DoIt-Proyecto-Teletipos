@@ -13,7 +13,8 @@ module.exports = {
           primary: "#5BC0EB",
           "base-100":"#303233",
           secondary:"#C2EDFF",
-          success:"#40F99B"
+          success:"#40F99B",
+          error: "#DB3A34"
 
         },
       },

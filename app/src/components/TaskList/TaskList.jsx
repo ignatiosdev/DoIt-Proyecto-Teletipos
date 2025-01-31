@@ -1,4 +1,3 @@
-
 import Task from "../Task/Task";
 import TaskSeparator from "./TaskSeparator/TaskSeparator";
 
@@ -14,7 +13,7 @@ function TaskList({tasks,deleteTask, updateTask} ) {
 
 
   return (
-    <div className="max-h-60 overflow-scroll ">
+    <div className="max-h-60 overflow-scroll -me-5 pe-1">
       {incompleteTasks && (
         <div className="flex flex-col gap-3">
           {incompleteTasks.map((task) => (

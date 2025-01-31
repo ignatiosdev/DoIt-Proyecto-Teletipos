@@ -2,6 +2,11 @@ import CreateTaskForm from "./components/CreateTaskForm/CreateTaskForm";
 import TaskList from "./components/TaskList/TaskList";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import {
+  createTask,
+  deleteTask,
+  updateTask,
+} from "./taskHandlers/taskHandlers"; 
 
 function App() {
   // Track clientside tasks
@@ -14,36 +19,6 @@ function App() {
     });
   };
 
-  // Send create task request and refetch tasks
-  const createTask = async (task) => {
-    if (!task.description) {
-      console.error("[createTask] Error: Tasks must have a description");
-      return;
-    }
-    await axios.post("http://localhost:3000/tasks", task);
-    getTasks();
-  };
-
-  // Send delete task request and refetch tasks
-  const deleteTask = async (taskId) => {
-    if (!taskId) {
-      console.error("[deleteTask] Error: taskId must be provided");
-    }
-    
-    await axios.delete(`http://localhost:3000/tasks/${taskId}`);
-    getTasks();
-  };
-
-  // Send update task request and refetch tasks
-  const updateTask = async (taskId, updatedData) => {
-    if (!taskId) {
-      console.error("[updateTask]  Error: taskId must be provided");
-    }
-
-    await axios.patch(`http://localhost:3000/tasks/${taskId}`, updatedData);
-    getTasks();
-  };
-
   // Fetch tasks on load
   useEffect(() => {
     getTasks();
@@ -52,13 +27,23 @@ function App() {
   return (
     <>
       <div className="min-w-full min-h-screen flex flex-col justify-center">
-        <div className="flex flex-col bg-primary mx-auto w-5/12  rounded-lg p-16 gap-12">
-          <CreateTaskForm createTask={createTask} />
-          <TaskList
-            tasks={tasks}
-            deleteTask={deleteTask}
-            updateTask={updateTask}
-          />
+        <div className="flex flex-col bg-primary mx-auto w-5/12  rounded-lg p-16 pt-10">
+          <div className="mx-auto pb-6 font-">
+            <h1 id="heading">DoIt</h1>
+          </div>
+          <div className="flex flex-col gap-12">
+            {
+              // Pass getTask as a callback function to reload tasks after requests
+            }
+            <CreateTaskForm createTask={(task) => createTask(task, getTasks)} />
+            <TaskList
+              tasks={tasks}
+              deleteTask={(taskId) => deleteTask(taskId, getTasks)}
+              updateTask={(taskId, updatedData) =>
+                updateTask(taskId, updatedData, getTasks)
+              }
+            />
+          </div>
         </div>
       </div>
     </>
