@@ -33,7 +33,7 @@ Proyecto de una aplicación de gestión de tareas (ToDo List) desarrollada como 
 ## **Pasos para Abrir y Probar el Frontend**
 
 1. **Instalar dependencias**:
-   - Abrir una terminal(o otra pestaña) en la carpeta raiz del proyecto y navegar a la carpeta del frontend:
+   - Abrir una terminal (u otra pestaña) en la carpeta raiz del proyecto y navegar a la carpeta del frontend:
      ```bash
      cd app
      ```
