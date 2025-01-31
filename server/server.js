@@ -1,4 +1,6 @@
 import express from "express";
+import cors from "cors";
+
 import {
   tasks,
   createTask,
@@ -10,6 +12,7 @@ const server = express();
 const port = 3000;
 
 server.use(express.json());
+server.use(cors())
 
 // Get tasks
 server.get("/tasks", (req, res) => {
