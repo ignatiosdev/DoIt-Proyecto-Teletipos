@@ -53,6 +53,11 @@ Proyecto de una aplicación de gestión de tareas (ToDo List) desarrollada como 
 
 ---
 
+## **Advertencia**
+
+Los puertos `3000` y `3010` son usados por el servidor y la aplicación web. Si estos puertos están en uso por otra aplicación a la hora de iniciar los servicios, estos no funcionarán con normalidad.
+
+
 ## **Detalles Adicionales**
 
 ### **Estructura del Proyecto**
