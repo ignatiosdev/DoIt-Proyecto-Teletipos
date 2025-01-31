@@ -20,12 +20,12 @@ function CreateTaskForm({ createTask }) {
 
   return (
     <form
-      className="flex gap-4"
+      className="flex flex-col md:flex-row gap-5 md:gap-4"
       onSubmit={(e) => {
         handleSubmit(e);
       }}
     >
-      <div className="w-10/12">
+      <div className="w-full md:w-10/12">
         <input
           ref={createTaskInput}
           type="text"
@@ -37,7 +37,7 @@ function CreateTaskForm({ createTask }) {
           }  `}
         />
       </div>
-      <div className="w-2/12 ps-4">
+      <div className="w-4/12 self-center md:w-2/12 ps-4">
         <button className="btn btn-secondary text-base-100 w-full">
           Aceptar
         </button>
